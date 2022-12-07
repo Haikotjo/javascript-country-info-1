@@ -12,11 +12,16 @@ async function getDataMaps() {
         const result = await  axios.get(URI +ENDPOINT )
         console.log(result)
 
+        const popArray = [];
+
         result.data.map((input)=> {
             console.log(input.name)
             console.log(input.population)
             console.log(input.region)
+
+
             function color() {
+
                 if (input.region === "Asia"){
                     const asia = "Red";
                     item.setAttribute('class', 'country-name-red')
@@ -35,19 +40,17 @@ async function getDataMaps() {
                 }
             }
 
+            popArray.push(input.population)
+            popArray.sort(function(a, b){return b-a});
+            console.log(popArray);
+
+
 
             const item = document.createElement('li');
             color()
-            item.innerHTML = `<p>${input.name} </p>
-            <p>Has a population of ${input.population} people<p>`
+            item.innerHTML = `<li><img src="assets"> ${input.name} Has a population of ${input.population} people</li>`
             listOfNames.appendChild(item);
         })
-
-
-
-
-
-
 
     }catch ( err ) {
         console.log( err )

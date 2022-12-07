@@ -469,6 +469,7 @@ async function getDataMaps() {
     try {
         const result = await _axiosDefault.default.get(URI + ENDPOINT);
         console.log(result);
+        const popArray = [];
         result.data.map((input)=>{
             console.log(input.name);
             console.log(input.population);
@@ -483,10 +484,14 @@ async function getDataMaps() {
                 if (input.region === "Americas") item.setAttribute('class', 'country-name-green');
                 if (input.region === "Oceania") item.setAttribute('class', 'country-name-purple');
             }
+            popArray.push(input.population);
+            popArray.sort(function(a, b) {
+                return b - a;
+            });
+            console.log(popArray);
             const item = document.createElement('li');
             color();
-            item.innerHTML = `<p>${input.name} </p>
-            <p>Has a population of ${input.population} people<p>`;
+            item.innerHTML = `<li><img src="assets"> ${input.name} Has a population of ${input.population} people</li>`;
             listOfNames.appendChild(item);
         });
     } catch (err) {

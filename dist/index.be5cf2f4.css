@@ -3,7 +3,6 @@
 .containerPicture {
     display: flex;
     flex-direction: row;
-    background-color: indianred;
     justify-content: center;
     padding: 20px;
 }
@@ -30,24 +29,24 @@
     margin: 5px;
 }
 .country-name-yellow {
-    color: yellow;
+    color: goldenrod;
     margin: 5px;
 }
 
-
-.container {
-    background-color: aqua;
-    display: flex;
-    max-height: 1200px;
-}
-
 .country {
-    background-color: gray;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    min-width: 2000px;
-    margin: 20px;
+    justify-content: start;
+    align-content: start;
+    max-height: 200px;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
 }
 
 
